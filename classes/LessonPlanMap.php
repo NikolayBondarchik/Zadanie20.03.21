@@ -1,5 +1,16 @@
 <?php
 
-class LessonPlanMap extends BaseMap{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+/**
+ * Description of LessonPlanMap
+ *
+ * @author Абельдинов Аскар
+ */
+class LessonPlanMap extends BaseMap {
+    //put your code here
 }

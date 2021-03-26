@@ -1,4 +1,16 @@
 <?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of User
+ *
+ * @author Абельдинов Аскар
+ */
 class User extends Table{
     public $user_id = 0;
     public $lastname = '';
@@ -6,12 +18,18 @@ class User extends Table{
     public $patronymic = '';
     public $login = '';
     public $pass = '';
-    public $gender = 0;
     public $birthday = date;
     public $role_id = 0;
     public $active = 1;
     function validate() {
-        return false;
-    }
+       if (!empty($this->lastname) &&
+        !empty($this->firstname) &&
+        !empty($this->login) &&
+        !empty($this->pass) &&
+        !empty($this->role_id) &&
+        !empty($this->gender_id)) {
+        return true;
+        }
+    return false;
 }
-
+}
