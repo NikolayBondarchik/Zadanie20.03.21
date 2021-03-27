@@ -32,12 +32,12 @@ header('Location: add-teacher.php');
 }
 exit();
 }
-}
+
 if (isset($_POST['saveStudent'])) {
 $student = new Student();
 $student->gruppa_id = Helper::clearInt($_POST['gruppa_id']);
 $student->user_id = $user->user_id;
-if ((new StudentMap())->save($user, $student)) {
+if((new StudentMap())->save($user, $student)) {
 
 header('Location: profile-student.php?id='.$student->user_id);
 
@@ -51,4 +51,5 @@ header('Location: add-student.php');
 }
 }
 exit();
+}
 }

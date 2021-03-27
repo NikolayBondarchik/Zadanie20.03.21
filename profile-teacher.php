@@ -15,10 +15,10 @@ require_once 'template/header.php';
 <section class="content-header">
 <h1>Профиль преподавателя</h1>
 <ol class="breadcrumb">
-<li><a href="index.php"><i class="fafa-dashboard"></i> Главная</a></li>
+<li><a href="index.php"><i class="fa
+fa-dashboard"></i> Главная</a></li>
 
-<li><a href="list-
-teacher.php">Преподаватели</a></li>
+<li><a href="list-teacher.php">Преподаватели</a></li>
 
 <li class="active">Профиль</li>
 </ol>
@@ -30,7 +30,8 @@ teacher.php">Преподаватели</a></li>
 </div>
 <div class="box-body">
 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-
+hover">
 
 <?php require_once '_profile.php';?>
 
@@ -49,10 +50,10 @@ teacher.php">Преподаватели</a></li>
 </tr>
 </table>
 </div>
-
 </div>
 </div>
 </div>
 <?php
 require_once 'template/footer.php';
 ?>
+

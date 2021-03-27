@@ -82,7 +82,7 @@ desired effect
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <?php 
               ?>
-              <span class="hidden-xs">Здраствуйте, <?= $_SESSION["fio"]?></span>
+              <span class="hidden-xs">Здраствуйте, <?=$_SESSION["fio"]?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->

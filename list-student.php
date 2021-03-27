@@ -9,8 +9,7 @@ $page = 1;
 }
 $studentMap = new StudentMap();
 $count = $studentMap->count();
-$student = $studentMap->findAll($page*$size-$size,
-$size);
+$student = $studentMap->findAll($page*$size-$size, $size);
 $header = 'Список студентов';
 require_once 'template/header.php';
 ?>
@@ -22,7 +21,8 @@ require_once 'template/header.php';
 <ol class="breadcrumb">
 <li><a href="/index.php"><i class="fa
 fa-dashboard"></i> Главная</a></li>
-<li class="active">Список студентов</li>
+<li class="active">Список
+студента</li>
 </ol>
 </section>
 <div class="box-body">
@@ -33,7 +33,7 @@ fa-dashboard"></i> Главная</a></li>
 <!-- /.box-header -->
 <div class="box-body">
 <?php
-if ($students) {
+if($student) {
 ?>
 
 <table id="example2" class="table table-bordered table-hover">
@@ -43,21 +43,17 @@ if ($students) {
 <th>Ф.И.О</th>
 <th>Пол</th>
 <th>Дата рождения</th>
-<th>Отделение</th>
+<th>Группа</th>
 <th>Роль</th>
 </tr>
 </thead>
 <tbody>
 <?php
-foreach ($students as $student) {
+foreach ($student as $student) {
 echo '<tr>';
 
-echo '<td><a href="profile-student.php?id='.$student->user_id.'">'.$student->fio.'</a> '
-
-. '<a href="add-student.php?id='.$student->user_id.'"><i class="fa fa-pencil"></i></a></td>';
-
+echo '<td><a href="profile-student.php?id='.$student->user_id.'">'.$student->fio.'</a> '. '<a href="add-student.php?id='.$student->user_id.'"><i class="fa fa-pencil"></i></a></td>';
 echo '<td>'.$student->gender.'</td>';
-
 echo '<td>'.$student->birthday.'</td>';
 echo '<td>'.$student->gruppa.'</td>';
 echo '<td>'.$student->role.'</td>';
@@ -72,8 +68,7 @@ echo 'Ни одного студента не найдено';
 } ?>
 </div>
 <div class="box-body">
-<?php Helper::paginator($count, $page,
-$size); ?>
+<?php Helper::paginator($count, $page, $size); ?>
 </div>
 <!-- /.box-body -->
 </div>
@@ -82,3 +77,4 @@ $size); ?>
 <?php
 require_once 'template/footer.php';
 ?>
+

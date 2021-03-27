@@ -23,9 +23,4 @@ if ($user) {
 <td><?=$user->role;?></td>
 </tr>
 
-<?php 
-
-} 
-
-?>
-
+<?php } ?>

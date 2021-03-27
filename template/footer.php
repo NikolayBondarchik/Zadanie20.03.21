@@ -11,7 +11,7 @@
     <!-- To the right -->
 
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Политехнический Колледж Астана</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018 <a href="#">Политехнический Колледж г.Астана</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

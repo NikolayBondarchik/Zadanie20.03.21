@@ -2,30 +2,28 @@
 require_once 'secure.php';
 if (isset($_GET['id'])) {
 $id = Helper::clearInt($_GET['id']);
-} else {
-header('Location: 404.php');
-}
-$header = 'Профиль студента';
-$student = (new StudentMap())->findProfileById($id);
+$subject = (new SubjectMap())->findViewById($id);
+$header = 'Просмотр группы';
 require_once 'template/header.php';
 ?>
 <div class="row">
 <div class="col-xs-12">
 <div class="box">
 <section class="content-header">
-<h1>Профиль студента</h1>
+<h1><?=$header;?></h1>
 <ol class="breadcrumb">
 <li><a href="index.php"><i class="fa
 fa-dashboard"></i> Главная</a></li>
 
-<li><a href="list-student.php">Студенты</a></li>
+<li><a href="list-
+subject.php">Группы</a></li>
 
-<li class="active">Профиль</li>
+<li class="active"><?=$header;?></li>
 </ol>
 </section>
 <div class="box-body">
 
-<a class="btn btn-success" href="add-student.php?id=<?=$id;?>">Изменить</a>
+<a class="btn btn-success" href="add-subject.php?id=<?=$id;?>">Изменить</a>
 
 </div>
 <div class="box-body">
@@ -33,20 +31,22 @@ fa-dashboard"></i> Главная</a></li>
 <table class="table table-bordered table-
 hover">
 
-<?php require_once '_profile.php';?>
-
 <tr>
+<th>Название</th>
 
-<th>Группа</th>
-
-<td><?=$student->gruppa;?></td>
+<td><?=$subject->name;?></td>
 
 </tr>
 <tr>
 
-<th>Заблокирован</th>
+<th>Предмет</th>
 
-<td><?=($user->active) ? 'Нет' : 'Да';?></td>
+<td><?=$subject->otdel;?></td>
+
+</tr>
+<tr>
+<th>Часы</th>
+<td><?=$subject->hours;?></td>
 </tr>
 </table>
 </div>
@@ -54,5 +54,6 @@ hover">
 </div>
 </div>
 <?php
+}
 require_once 'template/footer.php';
 ?>

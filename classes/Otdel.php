@@ -16,6 +16,9 @@ class Otdel extends Table {
     public $name = '';
     public $active = 1;
     function validate() {
-        return false;
+         if (!empty($this->name)) {
+        return true;
+        }
+    return false;
     }
 }
