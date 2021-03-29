@@ -1,5 +1,9 @@
 <?php
 require_once 'secure.php';
+if (!Helper::can('admin') && !Helper::can('manager')) {
+header('Location: 404.php');
+exit();
+}
 $id = 0;
 if (isset($_GET['id'])) {
 $id = Helper::clearInt($_GET['id']);
@@ -12,8 +16,7 @@ require_once 'template/header.php';
 <h1><?=$header;?></h1>
 <ol class="breadcrumb">
 
-<li><a href="/index.php"><i class="fa fa-
-dashboard"></i> Главная</a></li>
+<li><a href="/index.php"><i class="fa fa-dashboard"></i> Главная</a></li>
 
 <li><a href="list-gruppa.php">Группы</a></li>
 <li class="active"><?=$header;?></li>
@@ -37,6 +40,7 @@ name="name" required="required" value="<?=$gruppa->name;?>">
 <input type="date" class="form-control"
 name="date_begin" required="required" value="<?=$gruppa->date_begin;?>">
 </div>
+
 <div class="form-group">
 <label>Дата окончания</label>
 <input type="date" class="form-control"
@@ -53,3 +57,4 @@ value="<?=$id;?>"/>
 <?php
 require_once 'template/footer.php';
 ?>
+

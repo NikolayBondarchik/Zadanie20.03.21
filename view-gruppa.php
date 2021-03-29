@@ -1,5 +1,9 @@
 <?php
 require_once 'secure.php';
+if (!Helper::can('admin') && !Helper::can('manager')) {
+header('Location: 404.php');
+exit();
+}
 if (isset($_GET['id'])) {
 $id = Helper::clearInt($_GET['id']);
 $gruppa = (new GruppaMap())->findViewById($id);
@@ -15,7 +19,8 @@ require_once 'template/header.php';
 <li><a href="index.php"><i class="fa
 fa-dashboard"></i> Главная</a></li>
 
-<li><a href="list-gruppa.php">Группы</a></li>
+<li><a href="list-
+gruppa.php">Группы</a></li>
 
 <li class="active"><?=$header;?></li>
 </ol>
@@ -46,13 +51,11 @@ hover">
 <tr>
 
 <th>Дата образования</th>
-<td><?=date("d.m.Y",strtotime($gruppa->date_begin));?></td>
+<td><?=date("d.m.Y", strtotime($gruppa->date_begin));?></td>
 </tr>
 <tr>
 <th>Дата окончания</th>
-<td><?=date("d.m.Y",
-
-strtotime($gruppa->date_end));?></td>
+<td><?=date("d.m.Y", strtotime($gruppa->date_end));?></td>
 </tr>
 </table>
 </div>

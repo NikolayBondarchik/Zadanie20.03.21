@@ -1,6 +1,6 @@
 <?php
 class SubjectMap extends BaseMap {
-    public function arrSubject() {
+    public function arrSubjects() {
         $res = $this->db->query("SELECT subject_id AS id, name AS value FROM subject");
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -39,7 +39,7 @@ class SubjectMap extends BaseMap {
         $name = $this->db->quote($subject->name);
         $hours = $this->db->quote($subject->hours);
         if ( $this->db->exec("UPDATE subject SET name = $name,
-        otdel_id = $subject->otdel_id, hours = $hours, WHERE subject_id = ".$subject->subject_id) == 1) {
+        otdel_id = $subject->otdel_id, hours = $hours WHERE subject_id = ".$subject->subject_id) == 1) {
         return true;
         }
         return false;

@@ -1,6 +1,5 @@
 <?php
 class TeacherMap  extends BaseMap {
-    
     public function findById($id = null){
         if ($id) {
         $res = $this->db->query("SELECT user_id, otdel_id
@@ -27,7 +26,7 @@ class TeacherMap  extends BaseMap {
     
     private function insert($teacher = Teacher) {
         if ($this->db->exec("INSERT INTO teacher(user_id,
-         otdel_id) VALUES($teacher->user_id, $teacher->otdel_id)")== 1) {
+        otdel_id) VALUES($teacher->user_id, $teacher->otdel_id)")== 1) {
         return true;
         }
     return false;

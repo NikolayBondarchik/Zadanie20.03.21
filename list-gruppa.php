@@ -1,5 +1,9 @@
 <?php
 require_once 'secure.php';
+if (!Helper::can('admin') && !Helper::can('manager')) {
+header('Location: 404.php');
+exit();
+}
 $size = 1;
 if (isset($_GET['page'])) {
 $page = Helper::clearInt($_GET['page']);
@@ -18,7 +22,8 @@ require_once 'template/header.php';
 <section class="content-header">
 <h1><?=$header;?></h1>
 <ol class="breadcrumb">
-<li><a href="/index.php"><i class="fafa-dashboard"></i> Главная</a></li>
+<li><a href="/index.php"><i class="fa
+fa-dashboard"></i> Главная</a></li>
 <li class="active"><?=$header;?></li>
 </ol>
 </section>
@@ -43,7 +48,6 @@ if ($gruppas) {
 
 </tr>
 </thead>
-
 <tbody>
 <?php
 foreach ($gruppas as $gruppa) {
@@ -55,8 +59,10 @@ echo '<td><a href="view-gruppa.php?id='.$gruppa->gruppa_id.'">'.$gruppa->name.'<
 
 echo '<td>'.$gruppa->special.'</td>';
 
-echo '<td>'.date("d.m.Y",strtotime($gruppa->date_begin)).'</td>';
-echo '<td>'.date("d.m.Y",strtotime($gruppa->date_end)).'</td>';
+echo '<td>'.date("d.m.Y",
+strtotime($gruppa->date_begin)).'</td>';
+echo '<td>'.date("d.m.Y",
+strtotime($gruppa->date_end)).'</td>';
 echo '</tr>';
 }
 ?>
@@ -67,7 +73,8 @@ echo 'Ни одной группы не найдено';
 } ?>
 </div>
 <div class="box-body">
-<?php Helper::paginator($count, $page,$size); ?>
+<?php Helper::paginator($count, $page,
+$size); ?>
 </div>
 </div>
 </div>
@@ -75,3 +82,4 @@ echo 'Ни одной группы не найдено';
 <?php
 require_once 'template/footer.php';
 ?>
+
